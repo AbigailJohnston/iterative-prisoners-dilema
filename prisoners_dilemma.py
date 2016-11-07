@@ -229,12 +229,13 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 4:
         if getting_team_name:
-            return 'betray every 3rd round'
+            return 'collude first'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
-            size = len(history)
-            if(size%3==0): #the number of rounds played is a multiple of 3
+            size = len(history) == 0
+            return 'c'
+            if opponent_history[-1] == 'b':
                 return 'c'
             else:
                 return 'b'
